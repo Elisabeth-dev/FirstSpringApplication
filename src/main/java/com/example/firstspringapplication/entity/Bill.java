@@ -1,6 +1,7 @@
 package com.example.firstspringapplication.entity;
 
 import com.example.firstspringapplication.controller.DTO.BillRequestDTO;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,8 +16,10 @@ public class Bill {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long billId;
 
+    @JsonProperty("amount")
     private BigDecimal amount;
 
+    @JsonProperty("isDefault")
     private Boolean isDefault;
 
     public Bill(BigDecimal amount, Boolean isDefault) {
