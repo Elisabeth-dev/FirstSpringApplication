@@ -27,4 +27,12 @@ public class PaymentService {
         return "luck!";
 
     }
+
+    public Object deposit(Long accountId, BigDecimal depositAmount){
+        Account account = accountService.getById(accountId);
+        Bill defaultBill = AccountUtils.findDefultBill(account);
+        defaultBill.setAmount(defaultBill.getAmount().add(depositAmount));
+        accountService.update(account);
+        return "luck!";
+    }
 }

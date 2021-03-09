@@ -27,5 +27,9 @@ public class PaymentController {
         return paymentService.pay(paymentRequestDTO.getAccountId(), paymentRequestDTO.getAmount());
     }
 
+    @PostMapping("/deposit")
+    public Object deposit(@RequestBody PaymentRequestDTO paymentRequestDTO){
+        return paymentService.deposit(paymentRequestDTO.getAccountId(), paymentRequestDTO.getAmount());
+    }
 
 }
